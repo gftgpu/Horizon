@@ -84,7 +84,7 @@ def default_normalizer(feats, min_value=None, max_value=None):
         #     quantiles=None,
         #     min_value=min_value,
         #     max_value=max_value,
-        # ),    # Junchen: remove ENUM case to aviod bugs
+        # ),    # Junchen: remove ENUM case to aviod bugs  
     ]
     normalization = collections.OrderedDict(
         [
