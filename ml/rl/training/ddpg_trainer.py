@@ -294,7 +294,7 @@ class ActorNet(nn.Module):
         assert len(layers) >= 2, "Invalid layer schema {} for actor network".format(
             layers
         )
-
+        # print('layers', layers)
         for i, layer in enumerate(layers[1:]):
             self.layers.append(nn.Linear(layers[i], layer))
             self.batch_norm_ops.append(nn.BatchNorm1d(layers[i]))
@@ -312,7 +312,9 @@ class ActorNet(nn.Module):
         :param state state as list of state features
         """
         x = state
+        # print('state', state.shape)
         for i, activation in enumerate(self.activations):
+            # print('i', i)
             x = self.batch_norm_ops[i](x)
             activation_func = getattr(F, activation)
             fc_func = self.layers[i]
